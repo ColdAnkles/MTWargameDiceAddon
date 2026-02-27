@@ -5,6 +5,9 @@ function roll_dice_array(dieCount) {
     for (var i = 0; i < dieCount; i++) {
         diceArray.push(roll_dice("1d6"));
     }
+    
+    let diceList = JSON.parse(read_data("diceArray"));
+    write_data("prevDiceArray", JSON.stringify(diceList));
     write_data("diceArray", JSON.stringify(diceArray));
     MTScript.evalMacro("[h: ca.wgd.updateUI()]");
 }
@@ -12,6 +15,8 @@ function roll_dice_array(dieCount) {
 MTScript.registerMacro("ca.wgd.roll_dice_array", roll_dice_array);
 
 function clear_dice_array() {
+    let diceList = read_data("diceArray");
+    write_data("prevDiceArray", diceList);
     write_data("diceArray", JSON.stringify([]));
     write_data("animArray", JSON.stringify([]));
     MTScript.evalMacro("[h: ca.wgd.updateUI()]");
@@ -21,6 +26,7 @@ MTScript.registerMacro("ca.wgd.clear_dice_array", clear_dice_array);
 
 function remove_dice(removeVal) {
     let diceList = JSON.parse(read_data("diceArray"));
+    write_data("prevDiceArray", JSON.stringify(diceList));
     let newList = [];
     let animArray = []
     for (var d in diceList) {
@@ -38,6 +44,7 @@ MTScript.registerMacro("ca.wgd.remove_dice", remove_dice);
 
 function keep_dice(keepVal) {
     let diceList = JSON.parse(read_data("diceArray"));
+    write_data("prevDiceArray", JSON.stringify(diceList));
     let newList = [];
     let animArray = []
     for (var d in diceList) {
@@ -55,6 +62,7 @@ MTScript.registerMacro("ca.wgd.keep_dice", keep_dice);
 
 function reroll_dice(rerollVal) {
     let diceList = JSON.parse(read_data("diceArray"));
+    write_data("prevDiceArray", JSON.stringify(diceList));
     let newList = [];
     let animArray = []
     for (var d in diceList) {
@@ -72,3 +80,12 @@ function reroll_dice(rerollVal) {
 }
 
 MTScript.registerMacro("ca.wgd.reroll_dice", reroll_dice);
+
+function undo_dice(){
+    let diceList = JSON.parse(read_data("prevDiceArray"));
+    write_data("diceArray", JSON.stringify(diceList));
+    write_data("animArray", JSON.stringify([]));
+    MTScript.evalMacro("[h: ca.wgd.updateUI()]");
+}
+
+MTScript.registerMacro("ca.wgd.undo_dice", undo_dice);
