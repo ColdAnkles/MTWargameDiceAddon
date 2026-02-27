@@ -1,5 +1,20 @@
 "use strict";
 
+function add_dice(dieCount) {
+    let diceList = JSON.parse(read_data("diceArray"));
+    write_data("prevDiceArray", JSON.stringify(diceList));
+    let animArray = JSON.parse(read_data("animArray"));
+    for (var i = 0; i < dieCount; i++) {
+        diceList.push(1);
+        animArray.push(false);
+    }
+    write_data("diceArray", JSON.stringify(diceList));
+    write_data("animArray", JSON.stringify(animArray));
+    MTScript.evalMacro("[h: ca.wgd.updateUI()]");
+}
+
+MTScript.registerMacro("ca.wgd.add_dice", add_dice);
+
 function roll_dice_array(dieCount) {
     let diceArray = [];
     for (var i = 0; i < dieCount; i++) {
@@ -60,6 +75,24 @@ function keep_dice(keepVal) {
 
 MTScript.registerMacro("ca.wgd.keep_dice", keep_dice);
 
+function drop_dice(dropVal) {
+    let diceList = JSON.parse(read_data("diceArray"));
+    write_data("prevDiceArray", JSON.stringify(diceList));
+    let newList = [];
+    let animArray = []
+    for (var d in diceList) {
+        if (diceList[d] < dropVal) {
+            newList.push(diceList[d]);
+            animArray.push(false);
+        }
+    }
+    write_data("diceArray", JSON.stringify(newList));
+    write_data("animArray", JSON.stringify(animArray));
+    MTScript.evalMacro("[h: ca.wgd.updateUI()]");
+}
+
+MTScript.registerMacro("ca.wgd.drop_dice", drop_dice);
+
 function reroll_dice(rerollVal) {
     let diceList = JSON.parse(read_data("diceArray"));
     write_data("prevDiceArray", JSON.stringify(diceList));
@@ -93,7 +126,7 @@ function reroll_all_dice() {
     MTScript.evalMacro("[h: ca.wgd.updateUI()]");
 }
 
-MTScript.registerMacro("ca.wgd.reroll_dice", reroll_dice);
+MTScript.registerMacro("ca.wgd.reroll_all_dice", reroll_all_dice);
 
 function explode_dice(diceNum) {
     let diceList = JSON.parse(read_data("diceArray"));
