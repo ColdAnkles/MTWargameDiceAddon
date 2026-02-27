@@ -43,5 +43,5 @@
 [h: setLibProperty("diceArray","[]", "Lib:ca.wgd")]
 [h: setLibProperty("prevDiceArray","[]", "Lib:ca.wgd")]
 [h: setLibProperty("animArray","[]", "Lib:ca.wgd")]
-[h: js.ca.wgd.create_gm_macros()]
+[h: js.ca.wgd.create_campaign_macros()]
 [h: ca.wgd.updateUI()]
