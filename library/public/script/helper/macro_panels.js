@@ -31,6 +31,7 @@ function create_campaign_macros() {
     { "label": "<b>Reroll 4s</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.reroll_dice(4)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "e" },
     { "label": "<b>Reroll 5s</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.reroll_dice(5)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "e" },
     { "label": "<b>Reroll 6s</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.reroll_dice(6)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "e" },
+    { "label": "<b>Reroll All</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.reroll_all_dice()]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "e" },
     { "label": "<b>Explode 1s</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.explode_dice(1)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "f" },
     { "label": "<b>Explode 2s</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.explode_dice(2)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "f" },
     { "label": "<b>Explode 3s</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.explode_dice(3)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "f" },

@@ -79,6 +79,20 @@ function reroll_dice(rerollVal) {
     MTScript.evalMacro("[h: ca.wgd.updateUI()]");
 }
 
+function reroll_all_dice() {
+    let diceList = JSON.parse(read_data("diceArray"));
+    write_data("prevDiceArray", JSON.stringify(diceList));
+    let newList = [];
+    let animArray = []
+    for (var d in diceList) {
+        newList.push(roll_dice("1d6"));
+        animArray.push(true);
+    }
+    write_data("diceArray", JSON.stringify(newList));
+    write_data("animArray", JSON.stringify(animArray));
+    MTScript.evalMacro("[h: ca.wgd.updateUI()]");
+}
+
 MTScript.registerMacro("ca.wgd.reroll_dice", reroll_dice);
 
 function explode_dice(diceNum) {
