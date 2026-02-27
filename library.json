@@ -1,0 +1,14 @@
+{
+  "name": "Lib:WargameDice",
+  "version": "0.1",
+  "website": "",
+  "gitUrl": "https://github.com/ColdAnkles/MTWargameDiceAddon",
+  "authors": ["Cold_Ankles"],
+  "license": "",
+  "namespace": "ca.wgd",
+  "description": "Wargame Diceroller for MapTool",
+  "shortDescription": "Wargame Diceroller",
+  "allowsUriAccess": true,
+  "licenseFile": "",
+  "readMeFile": ""
+}
