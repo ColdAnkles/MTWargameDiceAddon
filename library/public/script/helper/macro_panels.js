@@ -39,8 +39,8 @@ function create_campaign_macros() {
     { "label": "<b>Explode 6s</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.explode_dice(6)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "f" },
     { "label": "<b>Undo Dice</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.undo_dice()]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "g" }
     ];
-    for (var m in GMMacros) {
-        createMacro(GMMacros[m], "campaign");
+    for (var m in campaignMacros) {
+        createMacro(campaignMacros[m], "campaign");
     }
 }
 

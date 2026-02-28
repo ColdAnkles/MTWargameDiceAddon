@@ -13,12 +13,12 @@ function dieAnimate() {
         }
         i++;
         timesRun++;
-        if (timesRun == 25) {
+        if (timesRun == 20) {
             clearInterval(interval);
             for (var d in dice) {
                 var dieValue = Number(dice[d].getAttribute("die-result"));
                 dice[d].src = images[dieValue - 1];
             }
         }
-    }, 15);
+    }, 20);
 }

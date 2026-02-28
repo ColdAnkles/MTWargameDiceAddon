@@ -22,15 +22,30 @@ function generate_overlay() {
 
     overlayHTML += "<body onload='dieAnimate();'>";
 
+    var dieCount = diceList.length;
+    var dieSplit = dieCount;
+    var s = 1;
 
-    overlayHTML += "<table style='position: absolute;top: " + String(viewHeight - 100) + "px;width:100%'>";
-    overlayHTML += "<tr><td style='text-align:center;vertical-align:bottom;'><h2 style='margin:0;'><span style='background-color:white;'>" + String(diceList.length) + "</span></h2></td><tr>"
-    overlayHTML += "<tr><td style='text-align:center;vertical-align:bottom;'>"
+    if (dieCount > 12) {
+        s = Math.ceil(dieCount / 12);
+        dieSplit = Math.floor(dieCount / s);
+    }
+
+    overlayHTML += "<table style='position: absolute;top: " + String(viewHeight - 50 - (50 * s)) + "px;width:100%'>";
+    overlayHTML += "<tr><td style='text-align:center;vertical-align:bottom;'><h2 style='margin:0;'><span style='background-color:white;'>" + String(diceList.length) + "</span></h2></td><tr>";
+    overlayHTML += "<tr><td style='text-align:center;vertical-align:bottom;'>";
+
+    var i = 0;
     for (var d in diceList) {
         if (animating.length != diceList.length || (animating.length == diceList.length && animating[d])) {
             overlayHTML += "<img class='animatedDie' src='lib://ca.wgd/image/die-" + String(diceList[d]) + ".png' alt='Spinning Image' width='50' height='50' die-result='" + String(diceList[d]) + "'></img>";
         } else if (animating.length == diceList.length && !animating[d]) {
             overlayHTML += "<img class='staticDie' src='lib://ca.wgd/image/die-" + String(diceList[d]) + ".png' alt='Static Image' width='50' height='50'></img>"
+        }
+        i++;
+        if (i == dieSplit) {
+            i = 0;
+            overlayHTML += "</td></tr><tr><td style='text-align:center;vertical-align:bottom;'>"
         }
     }
     overlayHTML += "</td></tr></table>"
