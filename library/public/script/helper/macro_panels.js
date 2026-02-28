@@ -1,7 +1,7 @@
 "use strict";
 
 function create_campaign_macros() {
-    let GMMacros = [{ "label": "<b>Add 1 Die</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.add_dice(1)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "a" },
+    let campaignMacros = [{ "label": "<b>Add 1 Die</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.add_dice(1)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "a" },
     { "label": "<b>Add 2 Dice</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.add_dice(2)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "a" },
     { "label": "<b>Add 3 Dice</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.add_dice(3)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "a" },
     { "label": "<b>Add 5 Dice</b>", "playerEditable": 0, "command": "[h: js.ca.wgd.add_dice(5)]", "tooltip": "", "color": "black", "fontColor": "white", "fontSize": "1.25em", "group": "Dice", "sortBy": "a" },
